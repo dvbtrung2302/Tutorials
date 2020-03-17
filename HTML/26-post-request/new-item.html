@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+ 	<input type="text" id="new-item">
+ 	<button id="add-btn">Add</button>
+ 	
+
+ 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 	<script type="text/javascript">
+ 		var url = 'http://localhost:9081/todos';
+ 		var addBtn = document.getElementById('add-btn');
+
+ 		addBtn.addEventListener('click', addItem);
+
+  		function addItem() {
+  			var newItem = document.getElementById('new-item');
+  			var data = {
+  				content: newItem.value
+  			};
+
+  			axios.post(url, data).then(function(item) {
+  				console.log('Item saved', item);
+  				return axios.get(url).then(function(res) {
+				 			items = res.data;
+				 			console.log('Data loaded...', items);
+				 			render(items)
+				 			newItem.value = '';
+				 		}).catch(function (error) {
+				    		console.log(error);
+  						});
+  			});
+ 			document.location.href='/';
+ 		}
+
+ 		function render(items) {
+	 		var content = items.map(function(x) {
+	 			return '<li>' + x.content + '</li>';
+	 		});
+	 		var htmlList = document.getElementById('todo-list');
+	 		htmlList.innerHTML = content.join('');
+ 		}
+ 		//render();
+ 	</script>
+</body>
+</html>

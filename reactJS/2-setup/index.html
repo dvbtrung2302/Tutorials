@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- <div class="title">React Tutorials</div>
+    <img src="https://loremflickr.com/320/240" /> -->
+
+
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // const Title = React.createElement('h1', {
+      //   className: 'title'
+      // }, 'Favorite Books');
+      // const App = <div><div className="title"> Favorite Books </div></div>;
+      // const Title = <div className="title"> Favorite Books </div>
+    
+      // const Book1 = React.createElement('li', {
+      //   className: 'book'
+      // }, 'Nhà Giả Kim');
+      // const Book2 = React.createElement('li', {
+      //   className: 'book'
+      // }, 'Đọc Vị Bất Kỳ Ai');
+      // const Book3 = React.createElement('li', {
+      //   className: 'book'
+      // }, `You don't know JS`);
+
+      // const BooksList = React.createElement('ul', {
+      //   className: 'books-list'
+      // }, Book1, Book2, Book3);
+
+      // const App = React.createElement('div', null, Title);
+      // const root = document.getElementById('root');
+      // ReactDOM.render(App, root);
+      const App = <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Thứ / Tiết</th>
+                        <th scope="col">Thứ 2</th>
+                        <th scope="col">Thứ 3</th>
+                        <th scope="col">Thứ 4</th>
+                        <th scope="col">Thứ 5</th>
+                        <th scope="col">Thứ 6</th>
+                        <th scope="col">Thứ 7</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Tiết 1</th>
+                        <td rowspan="5">IS201.K22.HTCL.2 - EN(HT1)</td>
+                        <td rowspan="5">IT007.K21.HTCL.2 - VN(HT1)</td>
+                        <td rowspan="5">IS208.K22.HTCL.2 - VN(HT1)</td>
+                        <td rowspan="4">IS210.K21.HTCL - EN</td>
+                        <td rowspan="4">IS216.K21.HTCL - VN</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 2</th>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 3</th>
+                        <td></td>  
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 4</th>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 5</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 6</th>
+                        <td rowspan="4">IS201.K22.HTCL - EN</td>
+                        <td rowspan="3">IT007.K21.HTCL - VN</td>
+                        <td rowspan="4">IS208.K22.HTCL - VN</td>
+                        <td rowspan="5">IS210.K21.HTCL.2 - EN(HT1)</td>
+                        <td rowspan="5">IS216.K21.HTCL.2 - VN(HT1)</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 7</th>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 8</th>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 9</th>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Tiết 10</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+      const root = document.getElementById('root');
+      ReactDOM.render(App, root);
+    </script>
+  </body>
+</html>

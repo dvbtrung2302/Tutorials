@@ -1,0 +1,26 @@
+extends ../layouts/common.pug
+
+block content
+	h1 
+		span USERS 
+		a.btn.btn-primary(href="/users/create") New
+		form.ml-auto.mt-3(action="/users/search", method="Get" class="d-flex")
+			input(type="text", name="q", id="input" class="form-control mr-2")
+			button(class="btn btn-primary") Search
+
+	table.table
+		tr
+			th Avatar
+			th Name
+			th Phone
+			th Action
+		each user in users
+			tr
+				td
+					img(src=user.avatar, width="64px")
+				td= user.name
+				td= user.phone
+				td
+					a.btn.btn-light(href="/users/" + user.id) View
+block scripts
+	script(src="/scripts/input.js")

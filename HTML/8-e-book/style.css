@@ -1,0 +1,78 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: Georgia, 'Nimbus Roman No9 L', 'Century Schoolbook L', serif;
+	font-size: 20px;
+}
+h1 {
+	font-family: 'Cinzel', Georgia, serif;
+	font-size: 130%;
+	font-weight: 700;
+}
+h3 {
+	float: right;
+	margin: 0;
+	font-family: inherit;
+	font-weight: normal;
+}
+a {
+	text-decoration: none;
+	color: #467;
+}
+a:hover {
+	text-decoration: underline;
+} 
+a {
+	cursor: pointer;
+}
+li {
+	padding-bottom: 10px;
+}
+ol {
+	font-size: 90%;
+}
+.container {
+	margin: 0 3em;
+	padding: 3em 0;
+}
+.section {
+	display: -webkit-flex;
+  	display: flex;
+}
+.section .left {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+.section .right {
+ 	-webkit-flex: 1;
+  	-ms-flex: 1;
+  	flex: 1;
+}
+
+.left .logo {
+	vertical-align: text-top;
+}
+ul.links {
+	list-style-type: circle;
+}
+.bottom {
+	width: 50%;
+}
+
+@media screen and (max-width: 900px) {
+	.section {
+		-webkit-flex-direction: column;
+    	flex-direction: column;
+	}	
+	.container {
+		margin: 0;
+	}
+		h3 {
+		display: none;
+	}
+	.bottom {
+		width: 100%;
+	}
+} 

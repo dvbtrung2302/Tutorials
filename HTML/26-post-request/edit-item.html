@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+ 	<input type="text" id="text-edit">
+ 	<button id="button-edit">Save</button>
+ 	<ul id="todo-list"></ul>
+
+ 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 	<script type="text/javascript">
+ 		var url = 'http://localhost:9081/todos';
+ 		var buttonEdit = document.getElementById('button-edit');
+ 		var htmlList = document.getElementById('todo-list');
+ 		var textEdit = document.getElementById('text-edit');
+
+ 		dataId = parseInt(location.hash.slice(-1));
+ 		axios.get(url).then(function(res) {	
+ 			items = res.data;
+ 			textEdit.value = items[dataId - 1].content;
+ 		}).catch(function (error) {
+    		console.log(error);
+  		});
+
+  		buttonEdit.addEventListener('click', onButtonClicked);
+ 		function onButtonClicked(event){
+ 			var button = event.target;
+ 			if (button.innerHTML === 'Save') {
+	 			axios.put(url + "/" + dataId , { content: textEdit.value });
+	 		}
+	 		window.location.href='/';
+ 		}
+
+ 	</script>
+</body>
+</html>

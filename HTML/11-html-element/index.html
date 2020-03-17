@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Elements</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>TODO list</h1>
+
+	<ul id="todo-list">
+		<li>Have breakfast with Linh</li>
+		<li>Go aeon</li>
+		<li>Hair Cut</li>
+	</ul>
+	<script type="text/javascript">
+		var newTodo = document.createElement('li');
+		newTodo.textContent = 'Go shopping';
+		toDoList =  document.getElementById('todo-list');
+		toDoList.appendChild(newTodo);
+		var lastThing = toDoList.children[3];
+		lastThing.remove();
+	</script>
+</body>
+</html>

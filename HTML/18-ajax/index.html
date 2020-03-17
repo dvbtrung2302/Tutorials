@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+<!-- 	<input id="new-item" type="text">
+	<button onclick="addItem()">Add</button>
+	<ul id="todo-list">
+	</ul>
+	<button onclick="deleteItem()">Delete</button>
+
+	<script type="text/javascript">
+		var storageKey = 'todoList';
+		var dataString = localStorage.getItem(storageKey);
+		var todoList;
+		if (dataString) {
+			todoList = JSON.parse(dataString);
+		} else {
+			todoList = [];
+		}
+			
+		function addItem() {
+			//get value of the input
+			var input = document.getElementById('new-item');
+			//add value to array
+			var newItem = input.value;
+			todoList.push(newItem);
+			//re-render
+			render();
+			//clear input
+			input.value = '';
+			//store data
+			localStorage.setItem(storageKey, JSON.stringify(todoList));
+		}
+
+		function deleteItem() {
+			// todoList = [];
+			// localStorage.removeItem(storageKey);
+			// render();
+			todoList.pop();
+			localStorage.setItem(storageKey, JSON.stringify(todoList));
+			render();
+		}
+
+		function render() {
+			var content = todoList.map(function(item) {
+				return '<li>' + item + '</li>';
+			});
+
+			var htmlList = document.getElementById('todo-list').innerHTML = content.join('');
+		}
+		render();
+	</script>
+ -->
+ 	<input type="text" id="new-item">
+ 	<button id="add-btn">Add</button>
+ 	<ul id="todo-list"></ul>
+
+ 	<button id="delete-btn">Delete</button>
+
+ 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 	<script type="text/javascript">
+ 		var url = 'http://localhost:9081/todos/';
+
+ 		function getAxios() {
+ 		axios.get(url).then(function(res) {
+	 			items = res.data;
+	 			console.log('Data loaded...', items);
+	 			render(items)
+	 		}).catch(function (error) {
+	    		console.log(error);
+	  		});
+	 	}
+
+ 		function postAxios(object) {
+	  		axios.post(url, object).then(function(res) {
+	  			console.log(res.data);
+	  			return getAxios();
+	  		});
+	  	}
+
+	  	function putAxios(id, data) {
+	  		axios.put(url + id, data);		
+	  	}
+
+		 // function deleteObject(id) {
+		 // 	axios.delete(url + id).then(function(res) {
+	 	// 		getAxios();
+	 	// 	}).catch(function (error) {
+	  //   		console.log(error);
+	  // 		});
+		 // }
+
+	  	postAxios({ content: 'Go to sleep' });
+	  	//deleteObject(1);
+ 		putAxios(4, { content: 'Go to asdasdsasleep' });
+
+ 		var addBtn = document.getElementById('add-btn');
+ 		addBtn.addEventListener('click', addItem);
+
+ 		var deleteBtn = document.getElementById('delete-btn');
+ 		deleteBtn.addEventListener('click', deleteItem);
+
+ 		var newItem = document.getElementById('new-item');
+ 		newItem.value = sessionStorage.getItem('draft');
+ 		newItem.addEventListener('change', updateSessionStorage);
+
+ 		function updateSessionStorage() {
+ 			sessionStorage.setItem('draft', newItem.value);
+ 		}
+
+ 		function addItem() {
+ 			todoList.push(newItem.value);
+ 			render();
+ 			newItem.value = '';
+
+ 			localStorage.setItem(storageKey, JSON.stringify(todoList));
+ 		}
+
+ 		function deleteItem() {
+ 			todoList.pop();
+ 			localStorage.setItem(storageKey, JSON.stringify(todoList));
+ 			render();
+ 		}
+
+ 		function render(items) {
+	 		var content = items.map(function(x) {
+	 			return '<li>' + x.content + '</li>';
+	 		});
+	 		var htmlList = document.getElementById('todo-list');
+	 		htmlList.innerHTML = content.join('');
+ 		}
+ 		//render();
+ 	</script>
+</body>
+</html>
